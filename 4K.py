@@ -1,6 +1,7 @@
 a = list(map(str, input().split()))
 
-for i in range(len(a)):
-    for j in range(len(i)):
-        pass
-    print(a[i])
+sorted_a = sorted(a, key = lambda x: x[1])
+
+for x in sorted_a[:-1]:
+    print(x, end = ' ')
+print(sorted_a[-1])
