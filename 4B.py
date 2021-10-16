@@ -1,9 +1,15 @@
 a = list(map(int, input().split()))
 
-min = min(a)
-max = max(a)
+min = a[0]
+max = a[0]
 
-for i in range(len(a)):
-    if a[i] == max:
-        a[i] = min
-    print(a[i], end = ' ')
+for x in a:
+    if x > max:
+        max = x
+    if x < min:
+        min = x
+
+for x in a:
+    if x == max:
+        x = min
+    print(x, end = ' ')

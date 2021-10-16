@@ -1,7 +1,10 @@
-def gcd(x, y):
-    while y != 0:
-        (x, y) = (y, x % y)
-    return x
+def gcd(m, n):
+    while m != 0 and n != 0:
+        if m > n:
+            m %= n
+        else:
+            n %= m
+    return m + n
 
 A, B, C = map(int, input().split())
 
