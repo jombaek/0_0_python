@@ -1,23 +1,14 @@
-def rotate_matrix(m, k):
-    T = [[0] * len(m[i]) for i in range(len(m))]
-    c = 0
-    if k < 0:
-        while c != abs(k):
-            T = [[m[j][i] for j in range(len(m))] for i in range(len(m[0])-1, -1, -1)]
-            c += 1
-            m = T
-    else:
-        while c != k:
-            T = [[m[j][i] for j in range(len(m[0])-1, -1, -1)] for i in range(len(m))]
-            c += 1
-            m = T
-    return m
+def rotate_matrix(a):
+    return list(list(elem) for elem in zip(*a[::-1]))
 
 n, m, k = map(int, input().split())
+k %= 4
+result = []
 
-A = [[0] * m for i in range(n)]
+for _ in range(n):
+    result.append(input().split())
 
-for i in range(n):
-    A[i] = list(map(int, input().split()))
+for _ in range(k):
+    result = rotate_matrix(result)
 
-print(rotate_matrix(A, k))
+print(*(' '.join(map(str, i)) for i in result), sep='\n')
